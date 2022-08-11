@@ -16,36 +16,37 @@ for (let partidosMundial = 1; partidosMundial <= 3; partidosMundial++) {
 
 
 
-// variables
+// objeto de variables globales
+
+const partidos = {ganados: 0, empatados: 0, perdidos: 0};
 
 let puntos = 0;
-let ganados = 0;
-let empatados = 0;
-let perdidos = 0;
 let suma = 0;
 
-// función switch
+
+// declarando función
 
 function calcular () {
 
-    let pregunta = prompt("Pronosticar cuantos pts sumará Arg (G=3,E=1,P=0)");
+    let pregunta = prompt("Pronosticar cuantos pts sumará Arg (G=3,E=1,P=0)"); //variable local
+
 
     switch (pregunta){
     case "G":
     suma = 3;
     puntos = puntos + suma;
-    ganados++;
+    partidos.ganados++;
     break;
     
     case "E":
     suma = 1;
     puntos = puntos + suma;
-    empatados++;
+    partidos.empatados++;
     break;
     
     case "P":
     suma = 0;
-    perdidos++;
+    partidos.perdidos++;
     break;
     
     default:
@@ -58,16 +59,11 @@ function calcular () {
 for (let partidosMundial = 1; partidosMundial <= 3; partidosMundial++) {
 
 
-   /*if (isNaN(pregunta)) {
-        break;
-    } else {
-        console.log("Partido N° " + partidosMundial + " Argentina suma " + pregunta + " puntos"); }*/
-
-calcular ();
+calcular (); // llamando a función
 
 console.log("Partido N° " + partidosMundial + " Argentina suma " + suma + " puntos");
 console.log("En " + partidosMundial + " fechas " + " Argentina suma " + puntos + " puntos");
-console.log("Resultados:\nPartidos ganados: "+ganados+"\nPartidos empatados: "+empatados+"\nPartidos perdidos: "+perdidos);
+console.log("Resultados:\nPartidos ganados: "+partidos.ganados+"\nPartidos empatados: "+partidos.empatados+"\nPartidos perdidos: "+partidos.perdidos);
 
 }
 
